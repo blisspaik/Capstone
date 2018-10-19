@@ -61,9 +61,13 @@ When it came to null values, I did not want to drop any observations because tha
 
 **Exploring Data Patterns with Visuals**
 
-- 2 weather plots?
 ![Histogram](https://github.com/blisspaik/Capstone/blob/master/Visuals/Histograms.png)
-- 3 crime plots?
+These plots display the distributions of temperatures throughout the years of 2016 and 2017. We can see that there are more days with temperatures around 45-50 degrees and 65-70 degrees in 2017, meaning there were generally more colder days in 2017.
+![Average rain per month](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_rain_per_month.png)
+![Average snow per month](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_snow_per_month.png)
+The first plot demonstrates the average rain per month in 2016 and 2017. There seems to be a seasonal trend for both years. In 2017, however, there was a dramatic increase in precipitation in April and November. Because 2016 had fewer wet days, it could be the fact that precipitation is not a strong predictor of crime occurences in 2017. Nonetheless, we will see whether it truly has any weight when we model.
+
+The second plot displays the average snow per month for both years. We can see that there was generally less snow in 2017. It is interesting to see that there was more rain in 2017, but less snow, specifically ice pellets. Because ice pellets form directly from precipitation, this can mean that 2017 was generally a hotter year. 
 
 ## Preprocessing
 
