@@ -6,8 +6,13 @@ For this project, I wanted to explore the relationship between weather and crime
 
 ## Outline
 - [Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
-- link to notebook
-- link to notebook
+- [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
+- [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
+- [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
+- [Logistic Regression](https://github.com/blisspaik/Capstone/blob/master/Code/05_Logistic_Regression.ipynb)
+- [Random Forest](https://github.com/blisspaik/Capstone/blob/master/Code/06_Random_Forest.ipynb)
+- [Neural Network](https://github.com/blisspaik/Capstone/blob/master/Code/07_Neural_Network.ipynb)
+- [Model Evaluation](https://github.com/blisspaik/Capstone/blob/master/Code/08_Model_Evaluations.ipynb)
 
 ## Problem statement
 
@@ -44,11 +49,11 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 **Exploring Data Features**
 
--link to crime eda notebook-
+[Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
 
 The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see here (add link). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
 
--link to weather eda notebook-
+[Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
 
 The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features.
 
@@ -57,6 +62,7 @@ When it came to null values, I did not want to drop any observations because tha
 **Exploring Data Patterns with Visuals**
 
 - 2 weather plots?
+![Histogram]()
 - 3 crime plots?
 
 ## Preprocessing
