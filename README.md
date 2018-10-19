@@ -110,9 +110,9 @@ I found that my best model, logistic regression, could accurately predict 58% of
 
 Based on the above classification report, we can see that model has high specificity but low sensitivity, suggesting that our model is more accurate in predicting crimes to have not occurred than to have occurred.
 
-## Future Steps
+Each model shows good progress by beating the baseline accuracy of 93%. What the baseline score tells us is how many crimes were not predicted to occur. Our models show promising results due to the fact that they are getting a significant proportion of the positive class predictions correct. The accuracy scores suggest that all models beat the baseline by predicting less negative class observations and more positive instances of crime. This is an informative start that can tell us how easy or difficult predicting crime really is. 
 
-Each model shows good progress by beating the baseline accuracy of 93%. What the baseline score tells us is how many crimes were not predicted to occur. Our models show promising results due to the fact that they are getting a significant proportion of the positive class predictions correct. The accuracy scores suggest that all models beat the baseline by predicting less negative class observations and more positive instances of crime. This is an informative start that can tell us how easy or difficult predicting crime really is. To further improve my models, the next steps I would take are:
+## Future Steps
 
 **Increasing computing power** - Due to the limitation on computing power and length of time for model fitting, the accuracy scores could not be improved at this time. With a bigger machine, we can assign a considerable amount of layers to the neural network, and can allow the model to fit for days. This will allow for more learning ability, and would hopefully result in a higher accuracy score. For logistic regression and random forest, with more time, I hope to tune the hyperparameters so that my model could be optimized to the highest degree. This would take a lot of processing power and time, so again, having a bigger machine with more computing power would allow me to do this.
 
