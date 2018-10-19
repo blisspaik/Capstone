@@ -100,7 +100,7 @@ Rather than making assumptions before fitting like other models do, neural netwo
 
 ## Results
 
-I found that my best model, logistic regression, had 58% accuracy in predicting crime in 2016, and 54% accuracy in predicting crime in 2017. I chose this as my production model due to the low amount of overfitting, and good overall score.
+I found that my best model, logistic regression, could accurately predict 58% of all crime occurrences in 2016 (train data). For the crime instances for 2017 (test data), the model was able to accurately predict 54% of all instances. I chose this as my production model due to the low amount of overfitting, and good overall score.
 
 |             	| precision 	| recall 	| f1-score 	| support 	|
 |-------------	|-----------	|--------	|----------	|---------	|
@@ -112,7 +112,7 @@ Based on the above classification report, we can see that model has high specifi
 
 ## Future Steps
 
-Each model shows good progress by beating the baseline accuracy of 3%. The baseline model, before bootstrapping, guesses randomly for each record weighted by the class balance. So, for each crime record, it would predict crime only 3% of the time. The fact that the model can dramatically beat the baseline accuracy suggests high predictive ability, and is a good start to producing a complex model that predicts crime. To further improve my models, the next steps I would take are:
+Each model shows good progress by beating the baseline accuracy of 93%. What the baseline score tells us is how many crimes were not predicted to occur. Our models show promising results due to the fact that they are getting a significant proportion of the positive class predictions correct. The accuracy scores suggest that all models beat the baseline by predicting less negative class observations and more positive instances of crime. This is an informative start that can tell us how easy or difficult predicting crime really is. To further improve my models, the next steps I would take are:
 
 **Increasing computing power** - Due to the limitation on computing power and length of time for model fitting, the accuracy scores could not be improved at this time. With a bigger machine, we can assign a considerable amount of layers to the neural network, and can allow the model to fit for days. This will allow for more learning ability, and would hopefully result in a higher accuracy score. For logistic regression and random forest, with more time, I hope to tune the hyperparameters so that my model could be optimized to the highest degree. This would take a lot of processing power and time, so again, having a bigger machine with more computing power would allow me to do this.
 
