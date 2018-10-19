@@ -62,7 +62,7 @@ When it came to null values, I did not want to drop any observations because tha
 **Exploring Data Patterns with Visuals**
 
 - 2 weather plots?
-![Histogram]()
+![Histogram](https://github.com/blisspaik/Capstone/blob/master/Visuals/Histograms.png)
 - 3 crime plots?
 
 ## Preprocessing
