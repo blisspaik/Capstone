@@ -1,15 +1,11 @@
-pandas
-numpy
-seaborn
-matplotlib
-datetime
-timedelta
-keras
-warnings
-imblearn
-pickle
-sklearn
-Other applications I utilized:
-
-Tableau
-Google Big Query
+pandas==0.23.4
+pandas-gbq==0.6.1
+numpy==1.15.2
+seaborn==0.8.1
+matplotlib==3.0.0
+Keras==2.2.2
+Keras-Applications==1.0.6
+Keras-Preprocessing==1.0.5
+imbalanced-learn==0.4.1
+imblearn==0.0
+scikit-learn==0.20.0
