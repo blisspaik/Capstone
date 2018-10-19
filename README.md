@@ -32,7 +32,7 @@ The python libraries I used were:
 - pickle
 - sklearn
 
-Other applications I used were:
+Other applications I utilized:
 
 - Tableau
 - Google Big Query
