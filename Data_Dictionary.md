@@ -1,6 +1,6 @@
 # Data Dictionary
 
-### Chicago crime data
+## Chicago Crime Data
 
 - unique_key: Unique identifier for the record.
 - case_number: The Chicago Police Department RD Number (Records Division Number), which is unique to the incident.
@@ -25,7 +25,7 @@
 - longitude: The longitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.
 - location: The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal.
 
-### Weather data
+## Weather Data
 
 - stn: Station number (WMO/DATSAV3 number) for the location
 - wban: WBAN number where applicable--this is the historical "Weather Bureau Air Force Navy" number
