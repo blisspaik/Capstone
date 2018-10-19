@@ -112,7 +112,13 @@ Rather than making assumptions before fitting like other models do, neural netwo
 ## Results
 
 I found that my best model, logistic regression, had 58% accuracy in predicting crime in 2016, and 54% accuracy in predicting crime in 2017. I chose this as my production model due to the low amount of overfitting, and good overall score.
-(add table of recall, precision, etc.)
+
+|             	| precision 	| recall 	| f1-score 	| support 	|
+|-------------	|-----------	|--------	|----------	|---------	|
+| No Crime  	  | 0.97      	| 0.54   	| 0.70     	| 2315357  	|
+| Crime      	  | 0.05      	| 0.59   	| 0.09     	|  87987  	|
+| weighted avg 	| 0.94      	| 0.54   	| 0.67     	| 2403344  	|
+
 Based on the above classification report, we can see that model has high specificity but low sensitivity, suggesting that our model is more accurate in predicting crimes to have not occurred than to have occurred.
 
 ## Future Steps
