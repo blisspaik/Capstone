@@ -53,7 +53,7 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see here (add link). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
 
-[Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
+#### [Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
 
 The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features.
 
@@ -68,6 +68,10 @@ These plots display the distributions of temperatures throughout the years of 20
 The first plot demonstrates the average rain per month in 2016 and 2017. There seems to be a seasonal trend for both years. In 2017, however, there was a dramatic increase in precipitation in April and November. Because 2016 had fewer wet days, it could be the fact that precipitation is not a strong predictor of crime occurences in 2017. Nonetheless, we will see whether it truly has any weight when we model.
 
 The second plot displays the average snow per month for both years. We can see that there was generally less snow in 2017. It is interesting to see that there was more rain in 2017, but less snow, specifically ice pellets. Because ice pellets form directly from precipitation, this can mean that 2017 was generally a hotter year. 
+
+![Incidents 2016](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_snow_per_month.png)
+![Incidents 2017](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2017.png)
+These count plots show counts of crime incidents per month in 2016 and 2017. There seems to be an increase in volent crime incidents during the hotter months, indicating some relationship between weather and crime.
 
 ## Preprocessing
 
