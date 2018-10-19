@@ -1,4 +1,4 @@
-# Data dictionary
+# Data Dictionary
 
 ### Chicago crime data
 
