@@ -32,6 +32,11 @@ The python libraries I used were:
 - pickle
 - sklearn
 
+Other applications I used were:
+
+- Tableau
+- Google Big Query
+
 ## Date Collection
 
 Google Big Query has an API for obtaining metadata from public datasets hosted by this data warehouse. It contains a standardized query structure that allows you to query data directly from the API. You can then download the data as a JSON or csv for easy use. I used this API to query crime and weather data directly into my notebooks. For more information, visit this [page](https://cloud.google.com/bigquery/public-data/).
