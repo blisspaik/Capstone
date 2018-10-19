@@ -18,25 +18,6 @@ For this project, I wanted to explore the relationship between weather and crime
 
 How does weather affect the incident rate of violent crimes? Or, as weather changes, what happens to the rate of violent crimes? If a positive relationship between crime and weather can be found, then we can evaluate which weather features are most indicative of predicting crime. The goal of this project is to leverage time series analysis and machine learning techniques to create yearly predictions for future crime cases.
 
-The python libraries I used were:
-
-- pandas
-- numpy
-- seaborn
-- matplotlib
-- datetime
-- timedelta
-- keras
-- warnings
-- imblearn
-- pickle
-- sklearn
-
-Other applications I utilized:
-
-- Tableau
-- Google Big Query
-
 ## Data Collection
 
 Google Big Query has an API for obtaining metadata from public datasets hosted by this data warehouse. It contains a standardized query structure that allows you to query data directly from the API. You can then download the data as a JSON or csv for easy use. I used this API to query crime and weather data directly into my notebooks. For more information, visit this [page](https://cloud.google.com/bigquery/public-data/).
@@ -62,7 +43,7 @@ The crime data contained both locational and time series features. Location feat
 
 The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features.
 
-When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this [map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_weather_stations.png) containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
+When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this Tableau [map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_weather_stations.png) containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
 
 ### Exploring Data Patterns with Visuals
 
