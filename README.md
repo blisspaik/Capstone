@@ -45,6 +45,8 @@ The weather data contained common weather features such as rain, snow, wind, tem
 
 When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this Tableau [map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_weather_stations.png) I created containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
 
+To see a list of all features, please look at this [data dictionary](https://github.com/blisspaik/Capstone/blob/master/Data_Dictionary.md).
+
 ### Exploring Data Patterns with Visuals
 
 ![Histogram](https://github.com/blisspaik/Capstone/blob/master/Visuals/Histograms.png)
