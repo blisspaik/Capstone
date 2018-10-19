@@ -51,13 +51,13 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 #### [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
 
-The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see here (add link). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
+The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see [here](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_beat_areas.png). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
 
 #### [Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
 
 The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features.
 
-When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this map containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
+When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this [map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_weather_stations.png) containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
 
 ### Exploring Data Patterns with Visuals
 
@@ -75,8 +75,7 @@ These count plots show counts of crime incidents per month in 2016 and 2017. The
 
 ## Preprocessing
 
-### Creating Negative Class
--link to notebook-
+#### [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
 
 The goal for modeling is to use 2016 crime and weather data as the training set, and 2017 crime and weather data as the testing set. Before assigning X and y, however, the datasets must be merged so that we could have two datasets that represent both weather and crime features. In order to do so, the level of granularity between crime and weather data had to be matched (weather data does not have hour). Because there was no date column in the original weather data, I had to manually make a hours dataframe that contained every hour for 1 year using timedelta. I was then able to merge weather data with the hours data on year, month, and day so that hour became a permanent feature. Additionally, I wanted to add beat label to the weather data for the purpose of a smoother merge. I was able to do this on the csv level, and directly add to the raw data a beat column. I then read in the altered csv, and was able to merge the crime and weather data on the similar columns. After merging, I was able to see which observations had no crime occurrences based on the NaN's. I replaced these NaN's with 0's, making a negative class.
 
@@ -85,8 +84,7 @@ The size of the merged dataframes were:
 - Train: 2,410,013 x 11
 - Test: 2,403,351 x 11
 
-### Feature Engineering
--link to notebook-
+#### [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
 
 For feature engineering, I added daylight and nighttime as features using sunrise and sunset. I obtained this data by scraping [TimeandDate](https://www.timeanddate.com/sun/usa/chicago?month=12&year=2017), and read in the data as a csv. I calculated the rolling day averages and sums for relevant weather features to evaluate whether previous weather knowledge will have an effect on predicting crime. Lastly, I bootstrapped using the module SMOTEEN in order to balance my classes. I was then able to assign X_train and y_train using the train data, and X_test and y_test using the test data.
 
@@ -99,17 +97,15 @@ The resulting sizes of the data were:
 
 Based on crime and weather data from 2016, I was able to evaluate which weather features were most informative when predicting crime for 2017. I produced three classification models.
 
-### Logistic Regression
-
--link to Log reg notebook-
+#### [Logistic Regression](https://github.com/blisspaik/Capstone/blob/master/Code/05_Logistic_Regression.ipynb)
 
 Utilizing an easily interpretable model like logistic regression for binary outcomes allows us to make inferences for how a feature impacts the classification probabilities. Additionally, the beta coefficients are easy to interpret compared to other models. I produced a logistic regression model that predicts crime occurrences in Chicago in 2017 based on weather features. I utilized pipeline and grid search in order to optimize my hyperparameters and boost my accuracy score.
 
--link to rand for ntbk-
+#### [Random Forest](https://github.com/blisspaik/Capstone/blob/master/Code/06_Random_Forest.ipynb)
 
 Random Forest controls for the overfitting by fitting multiple trees using a random subset of the feature space. Because it utilizes multiple decision trees, it contains a wide diversity that generally results in a better model. My assumptions were that this would be my best performing model. Additionally, like logistic regression, I implemented pipeline and gridsearch to the modeling process.
 
--link to netural net ntbk-
+#### [Neural Network](https://github.com/blisspaik/Capstone/blob/master/Code/07_Neural_Network.ipynb)
 
 Rather than making assumptions before fitting like other models do, neural networks have an adaptive learning feature that learn how to do tasks based on the data at the initial start. In general, they should have a high accuracy score due to their backpropagation ability that is the powerhouse of learning for this model. I used the neural network Python library Keras when producing this model, and implemented the regularization method Early Stopping to optimize my accuracy score.
 
