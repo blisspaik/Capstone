@@ -49,7 +49,7 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 **Exploring Data Features**
 
-[Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
+#### [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
 
 The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see here (add link). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
 
