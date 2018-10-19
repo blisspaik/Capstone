@@ -1,0 +1,15 @@
+pandas
+numpy
+seaborn
+matplotlib
+datetime
+timedelta
+keras
+warnings
+imblearn
+pickle
+sklearn
+Other applications I utilized:
+
+Tableau
+Google Big Query
