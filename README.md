@@ -47,7 +47,7 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 ## Exploratory Data Analysis
 
-**Exploring Data Features**
+### Exploring Data Features
 
 #### [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
 
@@ -59,7 +59,7 @@ The weather data contained common weather features such as rain, snow, wind, tem
 
 When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this map containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
 
-**Exploring Data Patterns with Visuals**
+### Exploring Data Patterns with Visuals
 
 ![Histogram](https://github.com/blisspaik/Capstone/blob/master/Visuals/Histograms.png)
 These plots display the distributions of temperatures throughout the years of 2016 and 2017. We can see that there are more days with temperatures around 45-50 degrees and 65-70 degrees in 2017, meaning there were generally more colder days in 2017.
@@ -69,13 +69,13 @@ The first plot demonstrates the average rain per month in 2016 and 2017. There s
 
 The second plot displays the average snow per month for both years. We can see that there was generally less snow in 2017. It is interesting to see that there was more rain in 2017, but less snow, specifically ice pellets. Because ice pellets form directly from precipitation, this can mean that 2017 was generally a hotter year. 
 
-![Incidents 2016](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_snow_per_month.png)
+![Incidents 2016](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2016.png)
 ![Incidents 2017](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2017.png)
 These count plots show counts of crime incidents per month in 2016 and 2017. There seems to be an increase in volent crime incidents during the hotter months, indicating some relationship between weather and crime.
 
 ## Preprocessing
 
-**Creating Negative Class**
+### Creating Negative Class
 -link to notebook-
 
 The goal for modeling is to use 2016 crime and weather data as the training set, and 2017 crime and weather data as the testing set. Before assigning X and y, however, the datasets must be merged so that we could have two datasets that represent both weather and crime features. In order to do so, the level of granularity between crime and weather data had to be matched (weather data does not have hour). Because there was no date column in the original weather data, I had to manually make a hours dataframe that contained every hour for 1 year using timedelta. I was then able to merge weather data with the hours data on year, month, and day so that hour became a permanent feature. Additionally, I wanted to add beat label to the weather data for the purpose of a smoother merge. I was able to do this on the csv level, and directly add to the raw data a beat column. I then read in the altered csv, and was able to merge the crime and weather data on the similar columns. After merging, I was able to see which observations had no crime occurrences based on the NaN's. I replaced these NaN's with 0's, making a negative class.
@@ -85,7 +85,7 @@ The size of the merged dataframes were:
 - Train: 2,410,013 x 11
 - Test: 2,403,351 x 11
 
-**Feature Engineering**
+### Feature Engineering
 -link to notebook-
 
 For feature engineering, I added daylight and nighttime as features using sunrise and sunset. I obtained this data by scraping [TimeandDate](https://www.timeanddate.com/sun/usa/chicago?month=12&year=2017), and read in the data as a csv. I calculated the rolling day averages and sums for relevant weather features to evaluate whether previous weather knowledge will have an effect on predicting crime. Lastly, I bootstrapped using the module SMOTEEN in order to balance my classes. I was then able to assign X_train and y_train using the train data, and X_test and y_test using the test data.
@@ -99,7 +99,7 @@ The resulting sizes of the data were:
 
 Based on crime and weather data from 2016, I was able to evaluate which weather features were most informative when predicting crime for 2017. I produced three classification models.
 
-**Logistic Regression**
+### Logistic Regression
 
 -link to Log reg notebook-
 
@@ -127,7 +127,7 @@ Due to the limitation on computing power and length of time for model fitting, t
 
 At this time, beat label is a proxy for true geospatial analysis. I did not produce any geospatial models, so beat label was not fully used as strong predictor variable for crime. It merely hinted at a geospatial element in the models. For future models, I would like to explore multiclassification so that I could specify a specific beat label for where a crime occurred. Furthermore, I would like to predict the type of violent crime, whether it be battery, assault, kidnapping, etc, and the time that the crime occured at. I would like to combine geospatial elements, time series elements, and types of crime so that the next model would be able to predict where a certain crime occurred at a certain time.
 
-# Recommendations
+## Recommendations
 
 - This could also mean that more people are out during these months because it is the summer. If this is the case, then I can use my model results to recommend to the city of Chicago certain programs that can keep people inside.
 - Based on plot in crime notebook, we can see an increase in crime from 2014-2017. This calls for action to be taken by police department.
