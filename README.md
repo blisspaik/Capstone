@@ -73,6 +73,9 @@ The second plot displays the average snow per month for both years. We can see t
 ![Incidents 2017](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2017.png)
 These count plots show counts of crime incidents per month in 2016 and 2017. There seems to be an increase in volent crime incidents during the hotter months, indicating some relationship between weather and crime.
 
+![Count of arrests](https://github.com/blisspaik/Capstone/blob/master/Visuals/Arrest_countplot.png)
+In 2016, we can see that there were dramatically low arrest rates for crimes of assault and robbery. Based on this, one goal could be that there is stronger policing for assault and robbery for future years. Other features that should also be crimes of interest for policing is sexual crimes, offenses involving children, and battery. These, however, may be harder to investigate due to the intimate nature of these crimes.
+
 ## Preprocessing
 
 #### [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
@@ -117,7 +120,7 @@ I found that my best model, logistic regression, had 58% accuracy in predicting 
 |-------------	|-----------	|--------	|----------	|---------	|
 | No Crime  	  | 0.97      	| 0.54   	| 0.70     	| 2315357  	|
 | Crime      	  | 0.05      	| 0.59   	| 0.09     	|  87987  	|
-| weighted avg 	| 0.94      	| 0.54   	| 0.67     	| 2403344  	|
+| Weighted avg 	| 0.94      	| 0.54   	| 0.67     	| 2403344  	|
 
 Based on the above classification report, we can see that model has high specificity but low sensitivity, suggesting that our model is more accurate in predicting crimes to have not occurred than to have occurred.
 
@@ -131,11 +134,7 @@ At this time, beat label is a proxy for true geospatial analysis. I did not prod
 
 ## Recommendations
 
-- This could also mean that more people are out during these months because it is the summer. If this is the case, then I can use my model results to recommend to the city of Chicago certain programs that can keep people inside.
-- Based on plot in crime notebook, we can see an increase in crime from 2014-2017. This calls for action to be taken by police department.
-- Talk about arrest countplot and how each crime could be difficult/easy to investigate for police.
-- maybe should not use beat label as an important feature in this model due to the fact that it seems as beat increases, the probability of crime decreases. (more tightly clustered patrol patterns control crime more effective / this can be biased because as beat # increases, we go more north so Northern Chicago could have more crime (research) / this then goes into race and ethics / police ethics
-- evaluate police predictive biases in their algorithms / bring in ethics
+Based on the countplot above regarding arrest, we can see which crimes with high rates do not result in arrest. These crimes are assault, robbery, sexual assault, offenses involving children, and battery. Using these findings, we can recommend that these crimes are the ones to look out for in the future. This will not be an easy task, however, due to the intimate nature of certain crimes. The incident plots suggest that during summer months, there seems to be an increase in violent crime rate. This could be attributed to the fact that more people are out during these months because it is the summer. If this is the case, then I can use my model results to recommend to the city of Chicago certain programs that can keep people inside as well as police budget allocation during these months. Furthermore, because temperature was an important predictive feature, we can focus police efforts during the months that correspond to the temperature. We can also focus police efforts based on hour because hour was an important feature in our model.
 
-Based on the fact that temperature was an important predictive feature, we can focus police efforts during the months that correspond to the temperature. We can also focus police efforts based on hour because hour was an important feature in our model.
-By proving this, I can make recommendations to the city of Chicago to police certain areas more during hotter months and to implement programs to keep people inside.
+Using beat label as a predictive feature in the models can be risky. In each model, beat label held great importance and weight when predicting the probability of crime occurring. Specifically, in logistic regression, we saw that as beat label increases, the probability of crime decreases. This can be explained by the fact that as beat label increases (from 100's to 2000's), the more north in Chicago they are located. In the [beat map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_beat_areas.png), we can see that the darker shades of blue are located primarily in northern Chicago. Northern Chicago could have higher socioeconomic status in comparison to southern Chicago, suggesting that there are more policing efforts in these higher socioeconomic areas. This then goes into the ethics of where policing efforts are directed based on race, gender, etc. because features like these are highly correlated with socioeconomic status. Police predictive biases are already a huge problem in society, so it is important to crime build models
+in an ethical way, considering the fact that focusing on numbers can dehumanize citizens and criminals alike. Other ethical considerations can be found on this online [article](https://www.dummies.com/programming/big-data/data-science/problems-data-science-crime-analysis/) by Lillian Pierson. 
