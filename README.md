@@ -6,13 +6,13 @@ For this project, I wanted to explore the relationship between weather and crime
 
 ## Outline
 - [Weather Data EDA](./Code/01_Chicago_Weather_EDA.ipynb)
-- [Crime Data EDA](../Code/02_Chicago_Crime_EDA.ipynb)
-- [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
-- [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
-- [Logistic Regression](https://github.com/blisspaik/Capstone/blob/master/Code/05_Logistic_Regression.ipynb)
-- [Random Forest](https://github.com/blisspaik/Capstone/blob/master/Code/06_Random_Forest.ipynb)
-- [Neural Network](https://github.com/blisspaik/Capstone/blob/master/Code/07_Neural_Network.ipynb)
-- [Model Evaluation](https://github.com/blisspaik/Capstone/blob/master/Code/08_Model_Evaluations.ipynb)
+- [Crime Data EDA](./Code/02_Chicago_Crime_EDA.ipynb)
+- [Creating Negative Class](./Code/03_Creating_Negative_Class.ipynb)
+- [Feature Engineering](./Code/04_Feature_Engineering.ipynb)
+- [Logistic Regression](./Code/05_Logistic_Regression.ipynb)
+- [Random Forest](./Code/06_Random_Forest.ipynb)
+- [Neural Network](./Code/07_Neural_Network.ipynb)
+- [Model Evaluation](./Code/08_Model_Evaluations.ipynb)
 
 ## Problem statement
 
@@ -35,36 +35,36 @@ I collected weather data from years 2014 to 2017 in order to plot trends in weat
 
 ### Exploring Data Features
 
-#### [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
+#### [Crime Data EDA](./Code/01_Chicago_Weather_EDA.ipynb)
 
-The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see [here](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_beat_areas.png). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
+The crime data contained both locational and time series features. Location features such as latitude, longitude, police district area, police beat area, and block were all highly correlated. I drop all location columns except beat because it is my geospatial feature of interest. By having beat as the indicator of location, I am focusing my predictions on a small police geographical area that has a dedicated police beat car. A Tableau map of beat areas can be see [here](./Visuals/Chicago_beat_areas.png). After dropping all appropriate features and null values, the clean data contained date, type of violent crime (battery, assault, robbery, etc.), whether an arrest was made, and beat label. The date corresponded with the occurrence of crime, so I set it as the index. Using date attributes, I was able to engineer new features for year, month, day, and hour. This was the level of granularity I was aiming for.
 
-#### [Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
+#### [Weather Data EDA](./Code/02_Chicago_Crime_EDA.ipynb)
 
-The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features. To see a list of all features, you can look at this [data dictionary](https://github.com/blisspaik/Capstone/blob/master/Data_Dictionary.md).
+The weather data contained common weather features such as rain, snow, wind, temperature, etc. as well as location features like latitude and longitude. It also had features dealing with time such as year, month, and day. I dropped the weather features that seemed redundant and similar in nature such as wind, windspeed, and gust of wind. In result, I ended up with temperature, wind speed, precipitation, snow, fog, and thunder as my total weather features. To see a list of all features, you can look at this [data dictionary](./master/Data_Dictionary.md).
 
-When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this Tableau [map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_weather_stations.png) I created containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
+When it came to null values, I did not want to drop any observations because that would mean we are losing valuable daily information. Imputing the nulls with other weather station values seemed appropriate in this case. I used this Tableau [map](./Visuals/Chicago_weather_stations.png) I created containing all weather stations in Illinois as a reference to see which weather station is near Chicago O' Hare International Airport, the origin of my weather data. I found that Northerly Island was the closest station that did not have null values in the days that I needed to impute. After doing so, I had the clean data that I needed to plot.
 
 ### Exploring Data Patterns with Visuals
 
-![Histogram](https://github.com/blisspaik/Capstone/blob/master/Visuals/Histograms.png)
+![Histogram](./Visuals/Histograms.png)
 These plots display the distributions of temperatures throughout the years of 2016 and 2017. We can see that there are more days with temperatures around 45-50 degrees and 65-70 degrees in 2017, meaning there were generally more colder days in 2017.
-![Average rain per month](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_rain.png)
-![Average snow per month](https://github.com/blisspaik/Capstone/blob/master/Visuals/Average_Snow.png)
+![Average rain per month](./Visuals/Average_rain.png)
+![Average snow per month](./Visuals/Average_Snow.png)
 The first plot demonstrates the average rain per month in 2016 and 2017. There seems to be a seasonal trend for both years. In 2017, however, there was a dramatic increase in precipitation in April and November. Because 2016 had fewer wet days, it could be the fact that precipitation is not a strong predictor of crime occurences in 2017. Nonetheless, we will see whether it truly has any weight when we model.
 
 The second plot displays the average snow per month for both years. We can see that there was generally less snow in 2017. It is interesting to see that there was more rain in 2017, but less snow, specifically ice pellets. Because ice pellets form directly from precipitation, this can mean that 2017 was generally a hotter year. 
 
-![Incidents 2016](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2016.png)
-![Incidents 2017](https://github.com/blisspaik/Capstone/blob/master/Visuals/Incidents_2017.png)
+![Incidents 2016](./Visuals/Incidents_2016.png)
+![Incidents 2017](./Visuals/Incidents_2017.png)
 These count plots show counts of crime incidents per month in 2016 and 2017. There seems to be an increase in volent crime incidents during the hotter months, indicating some relationship between weather and crime.
 
-![Count of arrests](https://github.com/blisspaik/Capstone/blob/master/Visuals/Arrest_countplot.png)
+![Count of arrests](./Visuals/Arrest_countplot.png)
 In 2016, we can see that there were dramatically low arrest rates for crimes of assault and robbery. Based on this, one goal could be that there is stronger policing for assault and robbery for future years. Other features that should also be crimes of interest for policing is sexual crimes, offenses involving children, and battery. These, however, may be harder to investigate due to the intimate nature of these crimes.
 
 ## Preprocessing
 
-#### [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
+#### [Creating Negative Class](./Code/03_Creating_Negative_Class.ipynb)
 
 The goal for modeling is to use 2016 crime and weather data as the training set, and 2017 crime and weather data as the testing set. Before assigning X and y, however, the datasets must be merged so that we could have two datasets that represent both weather and crime features. In order to do so, the level of granularity between crime and weather data had to be matched (weather data does not have hour). Because there was no date column in the original weather data, I had to manually make a hours dataframe that contained every hour for 1 year using timedelta. I was then able to merge weather data with the hours data on year, month, and day so that hour became a permanent feature. Additionally, I wanted to add beat label to the weather data for the purpose of a smoother merge. I was able to do this on the csv level, and directly add to the raw data a beat column. I then read in the altered csv, and was able to merge the crime and weather data on the similar columns. After merging, I was able to see which observations had no crime occurrences based on the NaN's. I replaced these NaN's with 0's, making a negative class.
 
@@ -73,7 +73,7 @@ The size of the merged dataframes were:
 - Train: 2,410,013 x 11
 - Test: 2,403,351 x 11
 
-#### [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
+#### [Feature Engineering](./Code/04_Feature_Engineering.ipynb)
 
 For feature engineering, I added daylight and nighttime as features using sunrise and sunset. I obtained this data by scraping [TimeandDate](https://www.timeanddate.com/sun/usa/chicago?month=12&year=2017), and read in the data as a csv. I calculated the rolling day averages and sums for relevant weather features to evaluate whether previous weather knowledge will have an effect on predicting crime. Lastly, I bootstrapped using the module SMOTEEN in order to balance my classes. I was then able to assign X_train and y_train using the train data, and X_test and y_test using the test data.
 
@@ -86,15 +86,15 @@ The resulting sizes of the data were:
 
 Based on crime and weather data from 2016, I was able to evaluate which weather features were most informative when predicting crime for 2017. I produced three classification models.
 
-#### [Logistic Regression](https://github.com/blisspaik/Capstone/blob/master/Code/05_Logistic_Regression.ipynb)
+#### [Logistic Regression](./Code/05_Logistic_Regression.ipynb)
 
 Utilizing an easily interpretable model like logistic regression for binary outcomes allows us to make inferences for how a feature impacts the classification probabilities. Additionally, the beta coefficients are easy to interpret compared to other models. I produced a logistic regression model that predicts crime occurrences in Chicago in 2017 based on weather features. I utilized pipeline and grid search in order to optimize my hyperparameters and boost my accuracy score.
 
-#### [Random Forest](https://github.com/blisspaik/Capstone/blob/master/Code/06_Random_Forest.ipynb)
+#### [Random Forest](./Code/06_Random_Forest.ipynb)
 
 Random Forest controls for the overfitting by fitting multiple trees using a random subset of the feature space. Because it utilizes multiple decision trees, it contains a wide diversity that generally results in a better model. My assumptions were that this would be my best performing model. Additionally, like logistic regression, I implemented pipeline and gridsearch to the modeling process.
 
-#### [Neural Network](https://github.com/blisspaik/Capstone/blob/master/Code/07_Neural_Network.ipynb)
+#### [Neural Network](./Code/07_Neural_Network.ipynb)
 
 Rather than making assumptions before fitting like other models do, neural networks have an adaptive learning feature that learn how to do tasks based on the data at the initial start. In general, they should have a high accuracy score due to their backpropagation ability that is the powerhouse of learning for this model. I used the neural network Python library Keras when producing this model, and implemented the regularization method Early Stopping to optimize my accuracy score.
 
@@ -124,4 +124,4 @@ Logistic regression shows good progress by beating the baseline accuracy of 93%.
 
 **Use temperature and hour as predictors of violent crime occurrence** - The incident plots suggest that during summer months, there seems to be an increase in violent crime rate. This could be attributed to the fact that more people are out during these months because it is the summer. If this is the case, then I can use my model's predictions to recommend to the city of Chicago where to allocate police budgets during these months. Furthermore, because temperature was an important predictive feature, we can focus police efforts during the months that correspond to the temperature. We can also direct police efforts based on hour because hour was also an important feature in the models.
 
-**Beat label can be effective in predicting policing patterns** - Using beat label as a predictive feature in the models can be risky. In each model, beat label held great importance and weight when predicting the probability of crime occurring. Specifically, in logistic regression, we saw that as beat label increases, the probability of crime decreases. This can be explained by the fact that as beat label increases (from 100's to 2000's), the more north in Chicago they are located. In the [beat map](https://github.com/blisspaik/Capstone/blob/master/Visuals/Chicago_beat_areas.png), we can see that the darker shades of blue are located primarily in northern Chicago. Northern Chicago could have higher socioeconomic status in comparison to southern Chicago, suggesting that there are more policing efforts in these higher socioeconomic areas. This then goes into the ethics of where policing efforts are directed based on race, gender, etc. because features like these are highly correlated with socioeconomic status. Police predictive biases are already a huge problem in society, so it is important to build crime models in an ethical way, considering the fact that focusing on numbers can dehumanize citizens and criminals alike. Further analysis on ethical considerations can be found on this online [article](https://www.dummies.com/programming/big-data/data-science/problems-data-science-crime-analysis/) written by Lillian Pierson. 
+**Beat label can be effective in predicting policing patterns** - Using beat label as a predictive feature in the models can be risky. In each model, beat label held great importance and weight when predicting the probability of crime occurring. Specifically, in logistic regression, we saw that as beat label increases, the probability of crime decreases. This can be explained by the fact that as beat label increases (from 100's to 2000's), the more north in Chicago they are located. In the [beat map](./Visuals/Chicago_beat_areas.png), we can see that the darker shades of blue are located primarily in northern Chicago. Northern Chicago could have higher socioeconomic status in comparison to southern Chicago, suggesting that there are more policing efforts in these higher socioeconomic areas. This then goes into the ethics of where policing efforts are directed based on race, gender, etc. because features like these are highly correlated with socioeconomic status. Police predictive biases are already a huge problem in society, so it is important to build crime models in an ethical way, considering the fact that focusing on numbers can dehumanize citizens and criminals alike. Further analysis on ethical considerations can be found on this online [article](https://www.dummies.com/programming/big-data/data-science/problems-data-science-crime-analysis/) written by Lillian Pierson. 
