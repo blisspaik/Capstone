@@ -5,7 +5,7 @@
 For this project, I wanted to explore the relationship between weather and crime in Chicago, Illinois. Specifically, I was interested in finding a relationship between weather features and incidents of violent crime. I wanted to focus on violent crime because these types of crimes are heavily motivated by mood. Mood and weather are known to have a correlational relationship, so it was important to evaluate this relationship. Confirming a positive relationship between weather and violent crime would allow for policing and budget allocation recommendations for the city of Chicago. Past efforts have been met with positive results, but in recent years, crime rates have been seen to increase, urging me to build a model that can predict violent crime occurrences. Using these predictions, we can take necessary measures to prevent future crime instances.
 
 ## Outline
-- [Weather Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/01_Chicago_Weather_EDA.ipynb)
+- [Weather Data EDA](./Code/01_Chicago_Weather_EDA.ipynb)
 - [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
 - [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
 - [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
