@@ -6,7 +6,7 @@ For this project, I wanted to explore the relationship between weather and crime
 
 ## Outline
 - [Weather Data EDA](./Code/01_Chicago_Weather_EDA.ipynb)
-- [Crime Data EDA](https://github.com/blisspaik/Capstone/blob/master/Code/02_Chicago_Crime_EDA.ipynb)
+- [Crime Data EDA](../Code/02_Chicago_Crime_EDA.ipynb)
 - [Creating Negative Class](https://github.com/blisspaik/Capstone/blob/master/Code/03_Creating_Negative_Class.ipynb)
 - [Feature Engineering](https://github.com/blisspaik/Capstone/blob/master/Code/04_Feature_Engineering.ipynb)
 - [Logistic Regression](https://github.com/blisspaik/Capstone/blob/master/Code/05_Logistic_Regression.ipynb)
