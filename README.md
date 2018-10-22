@@ -108,7 +108,7 @@ I found that my best model, logistic regression, could accurately predict 58% of
 | Crime      	  | 0.05      	| 0.59   	| 0.09     	|  87987  	|
 | Weighted avg 	| 0.94      	| 0.54   	| 0.67     	| 2403344  	|
 
-Based on the above classification report, we can see that model has high specificity but low sensitivity, suggesting that our model is more accurate in predicting crimes to have not occurred than to have occurred.
+Based on the above classification report, we can see that model can predict 59% of all true crime cases, and 54% of all negative instances of crime. There is a slightly higher recall score, suggesting that our model is more accurate in predicting crimes to have occurred than to not have occurred.
 
 Logistic regression shows good progress by beating the baseline accuracy of 93%. What the baseline score tells us is how many crimes were not predicted to occur, which is our majority class. Our baseline model has 0% likelihood of predicting the minority class (positive crime occurrences) as it is predicting the majority class for every entry. Our model shows promising results due to the fact that it is getting a significant proportion of the positive class predictions correct. The accuracy scores suggest that this model beat the baseline by predicting less negative class observations and more positive instances of crime. This is a good start for building a complex model that can predict true crime occurrences.
 
